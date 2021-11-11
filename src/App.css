@@ -1,0 +1,83 @@
+.App {
+  /* text-align: center; */
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.classes-nesting-label-x {
+	background-color: #3fc4bc;
+	//color: white;
+}
+
+.classes-nesting-root-x {
+	//background-color: #3fc4bc;
+	border-radius: 10px;
+}	
+
+.tree-item-content {
+	padding: 10px 10px 10px 10px;
+	background-color: white	
+}
+
+.tree-item-expanded {
+	background-color: white
+}
+
+/*
+.tree-item-iconContainer {
+	background-color: white
+}
+*/
+
+.tree-item-label {
+	background-color: #FFEFD5;
+	border-radius: 10px;	
+	/* color: #ffffff; */
+	padding: 5px 5px 5px 5px;
+}
+
+.tree-item-root {
+	margin: 5px 5px 5px 5px;	
+	width: 250px;
+}
+
+.tree-item-selected {
+	background-color: #adc9e6;
+}
+
+.skillPercentage {
+	font-size: smaller;
+}
