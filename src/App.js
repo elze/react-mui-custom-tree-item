@@ -3,8 +3,8 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import { makeStyles } from '@mui/styles';
 
-//import Chip from '@mui/material/Chip';
-import Container from '@mui/material/Container';
+import { Box } from '@mui/system';
+//import Container from '@mui/material/Container';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDoubleDown } from '@fortawesome/free-solid-svg-icons'
@@ -22,24 +22,42 @@ import Typography from '@mui/material/Typography';
 import { useMatomo } from '@datapunt/matomo-tracker-react'
 
 const useStyles = makeStyles({
+	root: {
+		margin: "5px 5px 5px 5px",
+		width: "auto"		
+	},
 	label: {
 		backgroundColor: "#FFEFD5",
 		borderRadius: "10px",
 		padding: "5px 5px 5px 5px",
-		textAlign: "center"		
+		textAlign: "center",
+		width: "250px"
 	},
 	content: {
 		padding: "10px 10px 10px 10px",
-		backgroundColor: "white"
+		backgroundColor: "white",
+		width: "250px"
 	},
 	expanded: {
 		backgroundColor: "white"
 	},
 	labelWithPercentage: {
-		backgroundColor: "#FFEFD5",
+		backgroundColor: "#d4fbfc",
 		borderRadius: "10px",
+		display: "inline-block",
 		padding: "5px 5px 5px 5px",
-		textAlign: "center"
+		textAlign: "center",
+		width: "auto"
+	},
+	leafRoot: {
+		display: "inline-block",
+		width: "auto"
+	},
+	leafContent: {
+		display: "inline-block",
+		padding: "10px 10px 10px 10px",
+		width: "auto"
+
 	},
 	selected: { 
 		backgroundColor: "#adc9e6"
@@ -176,11 +194,15 @@ const getTreeItemsFromData = (treeItems) => {
 		return (
       <CustomTreeItem	  
 		classes={{
-		root: 'tree-item-root',
-		label: classes.label, // 'tree-item-label', 
-		content: classes.content, // 'tree-item-content',
+		//root: 'tree-item-root',
+		root: children ? classes.root : classes.leafRoot,
+		//label: classes.label, // 'tree-item-label',  
+		label: children ? classes.label : classes.labelWithPercentage,
+		content: children ? classes.content : classes.leafContent, // 'tree-item-content',
+		//content: classes.content,
 		expanded: classes.expanded, // 'tree-item-expanded',
-		selected: 'tree-item-selected'
+		//selected: 'tree-item-selected'
+		selected: classes.selected
 		}}		  
 		key={treeItemData.id}
 		nodeId={treeItemData.id.toString()}    		
@@ -237,6 +259,15 @@ export default function App() {
 
 	}, [trackPageView, trackEvent]);		
   return (
-  <DataTreeView treeItems={skills} />
+  <>
+	<Box sx={{ fontFamily: 'Verdana, sans-serif' }}>
+		<p>This React.js app uses React MUI (Material UI) library (https://mui.com/) to display a tree view of data. The appearance of the tree nodes is customized in their appearance, and their content is generated programmatically. </p>
+
+		<p>The data displayed in the tree doesn't make much sense and has little to do with this project; it's borrowed from another, unrelated experiment of mine.</p>
+
+		<p>Here is <a href="https://github.com/elze/react-mui-custom-tree-item">the source code</a>. Here is <a href="http://geekitude.com">the author's website</a>.</p>      
+	</Box>
+	<DataTreeView treeItems={skills} />
+  </>
   );
 }
